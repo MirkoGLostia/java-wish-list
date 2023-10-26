@@ -16,7 +16,12 @@ public class MainWhishList {
         String description;
         List<Presents> presentsList = new ArrayList<>();
         boolean exit = false;
-        FileWriter fileWriter = null;
+
+        System.out.println("This is your list:");
+        readAFile();
+
+        System.out.println();
+        System.out.println();
 
 
         do {
@@ -42,10 +47,24 @@ public class MainWhishList {
         System.out.println(presentsList);
 
 
+        writeFile(presentsList);
+
+        System.out.println("***********************");
+
+        readAFile();
+
+
+        userinput.close();
+    }
+
+    private static void writeFile(List arg) {
+
+        FileWriter fileWriter = null;
         try {
-            fileWriter = new FileWriter("./text-archive/whishList");
-            for (int i = 0; i < presentsList.size(); i++) {
-                fileWriter.write(String.valueOf(presentsList.get(i)));
+            fileWriter = new FileWriter("./text-archive/whishList", true);
+            for (int i = 0; i < arg.size(); i++) {
+                fileWriter.write(String.valueOf(arg.get(i)));
+                fileWriter.write("\n");
             }
 
         } catch (IOException e) {
@@ -59,9 +78,9 @@ public class MainWhishList {
                 e.printStackTrace();
             }
         }
+    }
 
-        System.out.println("***********************");
-
+    private static void readAFile() {
         Scanner fileReader = null;
         try {
             fileReader = new Scanner(new File("./text-archive/whishList"));
@@ -76,8 +95,5 @@ public class MainWhishList {
                 fileReader.close();
             }
         }
-
-
-        userinput.close();
     }
 }
