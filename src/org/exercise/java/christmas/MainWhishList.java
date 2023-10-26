@@ -13,6 +13,7 @@ public class MainWhishList {
         String person;
         String description;
 
+
         do {
             System.out.println("to who are you sending this?");
             person = userinput.nextLine();
@@ -21,7 +22,8 @@ public class MainWhishList {
             description = userinput.nextLine();
 
             presentsList.add(new Presents(person, description));
-            presentsList.size();
+            System.out.print("elements in list: ");
+            System.out.println(presentsList.size());
 
 
             System.out.println("do you want to add another present to the list? (y/n)");
