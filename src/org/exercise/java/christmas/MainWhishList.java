@@ -1,2 +1,4 @@
-package org.exercise.java.christmas;public class MainWhishList {
+package org.exercise.java.christmas;
+
+public class MainWhishList {
 }
