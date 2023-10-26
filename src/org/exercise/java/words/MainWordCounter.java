@@ -10,15 +10,21 @@ public class MainWordCounter {
 
         // array and variables
         String userWord;
-        Map<Integer, Character> listOfLetters = new HashMap<>();
+        Map<Character, Integer> listOfLetters = new HashMap<>();
 
 
         System.out.println("gimme a word");
         userWord = userinput.nextLine();
 
         for (int i = 0; i < userWord.length(); i++) {
+            int n = 1;
             char userLetter = userWord.charAt(i);
-            listOfLetters.put(i, userLetter);
+            if (listOfLetters.containsKey(userLetter)){
+                n = listOfLetters.get(userLetter);
+                listOfLetters.replace(userLetter, n, n+1);
+            }else {
+            listOfLetters.put(userLetter, n);
+            }
         }
 
         System.out.println(listOfLetters);
